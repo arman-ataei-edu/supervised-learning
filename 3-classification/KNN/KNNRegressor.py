@@ -6,7 +6,7 @@ from .Metrics import Metric, Metrics
 class KNNRegressor:
     def __init__(self,distance_metric:Metrics, k:int=3, weighted=False, **kwargs):
         assert k >0 and k%2>0
-        self.p = kwargs['p']
+        self.p = kwargs['p'] if kwargs and kwargs['p'] else None
         self.weighted = weighted
         self.k = k
         if distance_metric == Metrics.Lp:

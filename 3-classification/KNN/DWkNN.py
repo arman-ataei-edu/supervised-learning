@@ -7,7 +7,7 @@ from .Metrics import Metric, Metrics
 class DWkNN:
     def __init__(self,distance_metric:Metrics, k:int=3, **kwargs):
         assert k >0 and k%2>0
-        self.p = kwargs['p']
+        self.p = kwargs['p'] if kwargs and kwargs['p'] else None
         self.k = k
         if distance_metric == Metrics.Lp:
             if not self.p:
